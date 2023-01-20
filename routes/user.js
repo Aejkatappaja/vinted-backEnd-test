@@ -9,6 +9,7 @@ const User = require("../models/User"); // J'appel mon fichier route/model.
 
 router.post("/user/signup", async (req, res) => {
   try {
+    console.log("route signup");
     const { username, email, password, newsletter } = req.body;
 
     if (!username) {
@@ -38,14 +39,15 @@ router.post("/user/signup", async (req, res) => {
 
     await user.save();
     const response = {
-      _id: userGuess._id,
-      token: userGuess.token,
-      account: userGuess.account,
+      _id: user._id,
+      token: user.token,
+      account: user.account,
       avatar: user.avatar,
     };
     res.json(response);
   } catch (error) {
-    res.status(400).json({ message: `This route doesn't exists` });
+    console.log("catch signup ----->", error);
+    res.status(400).json({ message: error });
   }
 });
 
@@ -69,7 +71,7 @@ router.post("/user/login", async (req, res) => {
       account: user.account,
     });
   } catch (error) {
-    res.status(400).json({ message: "This route doesn't exists" });
+    res.status(400).json({ message: error });
   }
 });
 
