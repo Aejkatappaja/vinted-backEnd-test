@@ -18,6 +18,7 @@ cloudinary.config({
 
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGODB_URI);
+// ok
 
 const userRoutes = require("./routes/user");
 app.use(userRoutes);
