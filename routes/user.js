@@ -7,7 +7,7 @@ const encBase64 = require("crypto-js/enc-base64"); // Sert à transformer l'encr
 
 const User = require("../models/User"); // J'appel mon fichier route/model.
 
-router.post("/user/signup/", async (req, res) => {
+router.post("/user/signup", async (req, res) => {
   try {
     const { username, email, password, newsletter } = req.body;
 
