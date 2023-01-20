@@ -49,7 +49,7 @@ router.post(
       //public_id: newOffer._id,
       //}
       //);
-
+      //
       //newOffer.product_image = result.secure_url;
       await newOffer.save();
       console.log(newOffer);
